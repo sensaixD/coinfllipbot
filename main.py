@@ -99,13 +99,10 @@ async def cf(ctx, amount: float):
         user_wins[ctx.author.id] = 0
         await ctx.send(f"😞 Sorry {ctx.author.mention}, you lost ₹{amount}. New balance: ₹{user_balances[ctx.author.id]:.2f}")
 
-if __name__ == "__main__":
-    token = os.getenv('TOKEN')
-    print("Token loaded:", token is not None)
-    if token is None:
-        print("ERROR: Discord bot token not found! Please set the TOKEN environment variable.")
-    else:
-        bot.run(token)
+import os
+token = os.getenv("DISCORD_TOKEN")
+bot.run(token)
+
 
 
 
